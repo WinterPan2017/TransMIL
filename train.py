@@ -17,7 +17,9 @@ def make_parse():
     parser.add_argument('--stage', default='train', type=str)
     parser.add_argument('--config', default='Camelyon/TransMIL.yaml',type=str)
     parser.add_argument('--gpus', default = [2])
-    parser.add_argument('--fold', default = 0)
+    parser.add_argument('--csv_path', default=None)
+    parser.add_argument('--save_dir', default=None)
+    parser.add_argument('--fold', default=1, type=int)
     args = parser.parse_args()
     return args
 
@@ -86,7 +88,11 @@ if __name__ == '__main__':
     cfg.General.gpus = args.gpus
     cfg.General.server = args.stage
     cfg.Data.fold = args.fold
-
+    if args.csv_path is not None:
+        cfg.Data.csv_path = args.csv_path
+    if args.save_dir is not None:
+        cfg.General.log_path = args.save_dir
+    print(cfg)
     #---->main
     main(cfg)
  

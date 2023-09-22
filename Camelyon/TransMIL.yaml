@@ -11,15 +11,15 @@ General:
     frozen_bn: False
     patience: 10
     server: test #train #test
-    log_path: logs/
+    log_path: /home/pwt/MIL/PosMIL/data/posmil_logs/transmil/
 
 Data:
     dataset_name: camel_data
     data_shuffle: False
-    data_dir: Camelyon16/pt_files/
-    label_dir: dataset_csv/camelyon16/
-    fold: 0
-    nfold: 4
+    data_dir: /home/pwt/MIL/PosMIL/data/camelyon16/camelyon16_processed/features/
+    csv_path: /home/pwt/MIL/PosMIL/datasets/camelyon16_resnet50_5fold.csv
+    fold: 1 # val fold
+    nfold: 5
 
     train_dataloader:
         batch_size: 1 

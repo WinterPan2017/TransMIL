@@ -10,4 +10,5 @@ opencv-python-headless==4.2.0.34
 pandas==1.2.3
 Pillow==8.4.0
 pytorch-lightning==1.2.3
-
+pytorch_toolbelt==0.4.0
+torchmetrics==0.4.1
