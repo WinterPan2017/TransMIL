@@ -20,6 +20,7 @@ def make_parse():
     parser.add_argument('--csv_path', default=None)
     parser.add_argument('--save_dir', default=None)
     parser.add_argument('--fold', default=1, type=int)
+    parser.add_argument('--nfolds', default=5, type=int)
     args = parser.parse_args()
     return args
 
