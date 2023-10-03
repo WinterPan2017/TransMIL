@@ -18,6 +18,7 @@ def make_parse():
     parser.add_argument('--config', default='Camelyon/TransMIL.yaml',type=str)
     parser.add_argument('--gpus', default = [2])
     parser.add_argument('--csv_path', default=None)
+    parser.add_argument('--data_dir', default=None)
     parser.add_argument('--save_dir', default=None)
     parser.add_argument('--fold', default=1, type=int)
     parser.add_argument('--nfolds', default=5, type=int)
@@ -38,7 +39,7 @@ def main(cfg):
 
     #---->Define Data 
     DataInterface_dict = {'train_batch_size': cfg.Data.train_dataloader.batch_size,
-                'train_num_workers': cfg.Data.train_dataloader.num_workers,
+                'train_num_workers': 0,
                 'test_batch_size': cfg.Data.test_dataloader.batch_size,
                 'test_num_workers': cfg.Data.test_dataloader.num_workers,
                 'dataset_name': cfg.Data.dataset_name,
@@ -91,6 +92,8 @@ if __name__ == '__main__':
     cfg.Data.fold = args.fold
     if args.csv_path is not None:
         cfg.Data.csv_path = args.csv_path
+    if args.data_dir is not None:
+        cfg.Data.data_dir = args.data_dir
     if args.save_dir is not None:
         cfg.General.log_path = args.save_dir
     print(cfg)

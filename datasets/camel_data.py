@@ -37,7 +37,7 @@ class CamelData(data.Dataset):
         self.label = []
         with open(self.csv_path, "r") as f:
             for row in f.readlines():
-                name, label, fold, path = row.strip().split(",")
+                name, label, fold = row.strip().split(",")
                 if int(fold) in folds:
                     self.data.append(name)
                     self.label.append(int(label))
